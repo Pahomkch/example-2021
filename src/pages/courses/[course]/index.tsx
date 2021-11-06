@@ -102,8 +102,8 @@ type CourseProps = {
 export const Course = memo(function Course(props: CourseProps) {
   const {query} = useRouter()
   return <div>
-        <b>{query.course}</b>
-        Count: {props.products.map(product => <div key={product._id}>{product.title}  </div>)}
+        <div><b>{query.course}</b></div>
+        {props.products.map(product => <div key={product._id}>{product.title}  </div>)}
       </div>
 })
 

@@ -19,18 +19,23 @@ const TopMenuItem = [
 export const Sidebar = memo(function Sidebar() {
   const {menu, firstCategory} = useContext(AppContext)
   const router = useRouter()
-  const [openCategory, setOpenCategory] = useState<Array<string>>(['Дизайн'])
-
+  const [openCategory, setOpenCategory] = useState<Array<string>>([])
 
   return <div className={styles.sidebar}>
 
     {/* First level */}
     {TopMenuItem.map((item, topIndex) => <div key={item.route} className={styles.topMenuItem}>
-      {item.icon}
-      <h3 className={styles.title}>{item.title}</h3>
+      <div className={cn(styles.topMenuItem, {[styles.active]: router.pathname.includes(item.route)})}>
+        {item.icon}
 
+        <Link href={item.route}>
+          <a className={cn(styles.title, {[styles.active]: router.pathname.includes(item.route)})}>{item.title}</a>
+        </Link>
+      </div>
+
+      {/* TODO Fix menu item when i take data for books, products and services */}
       {/* Second level */}
-      {(firstCategory === topIndex && menu) && menu.map(menuItem => <div
+      {(router.pathname.includes(item.route) && menu) && menu.map(menuItem => <div
           className={styles.secondMenuItem}
           key={menuItem._id.secondCategory}
         >

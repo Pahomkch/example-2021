@@ -43,10 +43,6 @@
 	grid-column: span 2;
 }
 
-.secondMenuItem:nth-child(3) {
-	padding-top: 10px;
-}
-
 .listCategoryCourses {
 	display: grid;
 	overflow: hidden;
@@ -82,5 +78,9 @@
 
 .active {
 	color: var(--primary-hover);
+	fill: var(--primary-hover);
+}
+
+.active svg{
 	fill: var(--primary-hover);
 }
