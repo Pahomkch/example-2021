@@ -1,12 +1,6 @@
 import {createContext, PropsWithChildren, useState} from 'react'
 import {MenuItem} from 'Index'
-
-export enum TopLevelCategory {
-  Courses,
-  Services,
-  Books,
-  Products
-}
+import {TopLevelCategory} from 'helpers'
 
 export type AppContextType = {
   firstCategory: TopLevelCategory

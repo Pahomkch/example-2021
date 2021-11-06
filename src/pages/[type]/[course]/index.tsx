@@ -1,8 +1,8 @@
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next'
+import {TopLevelCategory, TopMenuItem} from 'helpers'
 import axios from 'axios'
 import {memo} from 'react'
 import {ParsedUrlQuery} from 'querystring'
-import {TopLevelCategory} from 'common/context/AppContext'
 import {useRouter} from 'next/dist/client/router'
 import {withLayout} from 'Layout/AppLayout'
 
@@ -94,13 +94,13 @@ type CourseProps = {
   page: PageType
   products: ProductType[]
   firstCategory: number
-
-
-
 }
 
 export const Course = memo(function Course(props: CourseProps) {
   const {query} = useRouter()
+
+
+
   return <div>
         <div><b>{query.course}</b></div>
         {props.products.map(product => <div key={product._id}>{product.title}  </div>)}
@@ -111,17 +111,17 @@ export default withLayout(Course)
 
 
 export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
-  const firstCategory = 0
-
-  if(!params){
+  if(!params?.course || !params?.type){
     return {
       notFound: true,
     }
   }
 
+  const menuItem = TopMenuItem.find(item => item.route === params.type)
+
   const {data: menu} = await axios.post<MenuItem[]>(
     process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find',
-    {firstCategory: firstCategory},
+    {firstCategory: menuItem?.id},
   )
 
   const {data: page} = await axios.get<PageType>(
@@ -138,21 +138,27 @@ export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsCon
       menu,
       page,
       products,
-      firstCategory,
+      firstCategory: menuItem?.id,
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const firstCategory = 0
 
-  const {data: menu} = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find',
-    {firstCategory: firstCategory},
-  )
+  let paths: Array<string> = []
+
+  /* eslint-disable fp/no-loops */
+  for (const menuItem of TopMenuItem) {
+    const {data: menu} = await axios.post<MenuItem[]>(
+      process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find',
+      {firstCategory: menuItem.id},
+    )
+
+    paths = paths.concat(menu.flatMap(m => m.pages.map(page => `${menuItem.route}/${page.alias}`)))
+  }
 
   return {
-    paths   : menu.flatMap(m => m.pages.map(page => '/courses/' + page.alias)),
+    paths   : paths,
     fallback: true,
   }
 }
