@@ -1,0 +1,37 @@
+.tag {
+	display: inline-block;
+
+	padding: 5px 10px;
+
+	color: var(--white);
+	border: none;
+	border-radius: 20px;
+	background: #B3C0D9;
+
+	font-size: 14px;
+}
+
+.small {
+	font-size: 12px;
+}
+
+.green {
+	color: var(--green);
+	background: var(--green-light);
+
+	font-weight: 700;
+}
+
+.red {
+	color: var(--white);
+	background: #DE0000;
+}
+
+.primary {
+	color: var(--primary);
+	border: var(--primary) 1px solid;
+	background: none;
+
+	font-weight: 500;
+	line-height: 16px;
+}

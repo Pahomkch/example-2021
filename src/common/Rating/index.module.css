@@ -1,0 +1,18 @@
+.filled {
+	fill: var(--primary);
+}
+
+.grid {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 5px;
+}
+
+.center {
+	display: grid;
+	place-items: center;
+}
+
+.editable {
+	cursor: pointer;
+}

@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+
+  "plugins": [
+    "@typescript-eslint",
+    "fp"
+  ],
+
+  "globals": {
+    "document": "readonly",
+    "navigator": "readonly",
+    "window": "readonly"
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+
+  "rules": {
+    "arrow-parens": [2, "as-needed"],
+
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline"
+    }],
+
+    "sort-imports": [
+      "error",
+
+      {
+          "ignoreCase": true,
+          "ignoreMemberSort": false,
+          "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+
+    "key-spacing": ["error", {"afterColon": true, "align": "colon"}],
+    "line-comment-position": ["warn", {"position": "above"}],
+    "max-len": [2, {"code": 120, "ignoreUrls": true, "ignoreComments": true}],
+    "max-lines": ["warn", 300],
+    "no-debugger": 1,
+    "no-duplicate-imports": "error",
+    "no-mixed-spaces-and-tabs": [1],
+
+
+
+
+
+
+
+    "semi": "off",
+    "eol-last": "error",
+    "fp/no-loops": "error",
+    "@typescript-eslint/semi": ["warn", "never"],
+    "quotes": ["warn", "single"],
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "next/core-web-vitals"
+  ]
+}
