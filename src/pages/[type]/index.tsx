@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths   : TopMenuItem.map(item => `${item.route}`),
+    paths   : TopMenuItem.map(menu => menu.route),
     fallback: true,
   }
 }
