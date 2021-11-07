@@ -1,5 +1,5 @@
 import {createContext, PropsWithChildren, useState} from 'react'
-import {MenuItem} from 'Index'
+import {MenuItem} from 'types'
 import {TopLevelCategory} from 'helpers'
 
 export type AppContextType = {

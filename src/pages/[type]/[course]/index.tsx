@@ -1,84 +1,11 @@
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next'
+import {MenuItem, PageType, ProductType} from 'types'
 import {TopLevelCategory, TopMenuItem} from 'helpers'
 import axios from 'axios'
 import {memo} from 'react'
-import {MenuItem} from 'Index'
 import {ParsedUrlQuery} from 'querystring'
 import {useRouter} from 'next/dist/client/router'
 import {withLayout} from 'Layout/AppLayout'
-
-type Advantage = {
-  _id: string
-  title: string
-  description: string
-}
-
-type hhData = {
-  _id: string
-  count: number
-  juniorSalary: number
-  middleSalary: number
-  seniorSalary: number
-  updatedAt: Date
-}
-
-type PageType = {
-  tags: string[]
-  _id: string
-  secondCategory: string
-  alias: string
-  title: string
-  category: string
-  seoText: string
-  tagsTitle: string
-  metaTitle: string
-  metaDescription: string
-  firstCategory: TopLevelCategory
-  advantages: Advantage[]
-  createdAt: Date
-  updatedAt: Date
-  __v: number
-  hh: hhData
-  qas: [{
-      question: string,
-      answer: string
-  }]
-}
-
-type ProductType = {
-  _id: string
-  categories: string[]
-  tags: string[]
-  title: string
-  image: string
-  description: string
-  link: string
-  price: number
-  credit: number
-  oldPrice: number
-  characteristics: [{
-    value: string
-    name: string
-  }]
-  advantages: string
-  initialRating: number
-  createdAt: Date
-  updatedAt: Date
-  __v: number
-  html: string
-  reviews: ReviewType[]
-  reviewCount: number
-  reviewAvg?: number
-}
-
-type ReviewType = {
-  _id: string
-  name: string
-  title: string
-  description: string
-  rating: number
-  createdAt: Date
-}
 
 type CourseProps = {
   menu: MenuItem[]

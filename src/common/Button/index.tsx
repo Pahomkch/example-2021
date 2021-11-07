@@ -1,7 +1,7 @@
 import {ButtonHTMLAttributes, DetailedHTMLProps, memo} from 'react'
+import ArrowIcon from './arrow.svg'
 import cn from 'classnames'
 import styles from './index.module.css'
-import ArrowIcon from './arrow.svg'
 
 type ButtonProps = {
   children: React.ReactNode

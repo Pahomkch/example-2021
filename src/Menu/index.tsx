@@ -3,7 +3,7 @@ import {TopLevelCategory, TopMenuItem} from 'helpers'
 import {AppContext} from 'common/context/AppContext'
 import cn from 'classnames'
 import Link from 'next/link'
-import {MenuItem} from 'Index'
+import {MenuItem} from 'types'
 import styles from './index.module.css'
 import {useRouter} from 'next/dist/client/router'
 

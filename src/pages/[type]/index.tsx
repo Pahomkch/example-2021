@@ -1,7 +1,7 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
 import axios from 'axios'
 import {memo} from 'react'
-import {MenuItem} from 'Index'
+import {MenuItem} from 'types'
 import {TopMenuItem} from 'helpers'
 import {withLayout} from 'Layout/AppLayout'
 
