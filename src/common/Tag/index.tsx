@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import {memo} from 'react'
 import styles from './index.module.css'
+import {memo} from 'react'
 
 type TagProps = {
   children: React.ReactNode
