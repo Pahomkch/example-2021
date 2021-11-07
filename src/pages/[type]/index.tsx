@@ -20,7 +20,6 @@ const Type = memo(function Type(props: TypeProps) {
 
 export default withLayout(Type)
 
-
 export const getStaticProps: GetStaticProps = async ({params}) => {
 
   if(!params?.type) {
@@ -36,8 +35,8 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
   return {
     props: {
-      menu,
       firstCategory: menuItem?.id,
+      menu,
       type         : params?.type,
     },
   }
@@ -45,7 +44,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths   : TopMenuItem.map(menu => menu.route),
     fallback: true,
+    paths   : TopMenuItem.map(menu => menu.route),
   }
 }

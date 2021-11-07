@@ -50,10 +50,10 @@ export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsCon
 
   return {
     props: {
+      firstCategory: menuItem?.id,
       menu,
       page,
       products,
-      firstCategory: menuItem?.id,
     },
   }
 }
@@ -73,7 +73,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   return {
-    paths   : paths,
     fallback: true,
+    paths   : paths,
   }
 }

@@ -11,6 +11,5 @@ export const Sidebar = memo(function Sidebar() {
     <Search />
     <Menu />
 
-
   </div>
 })

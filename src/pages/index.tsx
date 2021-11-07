@@ -4,7 +4,6 @@ import {GetStaticProps} from 'next'
 import {withLayout} from 'Layout/AppLayout'
 export default withLayout(Index)
 
-
 export const getStaticProps: GetStaticProps = async () => {
   const firstCategory = 0
 

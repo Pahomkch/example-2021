@@ -11,8 +11,8 @@ export enum TopLevelCategory {
 }
 
 export const TopMenuItem = [
-  {route: '/courses', title: 'Курсы', icon: <CourseIcon />, id: TopLevelCategory.Courses},
-  {route: '/books', title: 'Книги', icon: <BookIcon />, id: TopLevelCategory.Books},
-  {route: '/products', title: 'Продукты', icon: <ProductIcon />, id: TopLevelCategory.Products},
-  {route: '/services', title: 'Сервисы', icon: <ServiceIcon />, id: TopLevelCategory.Services},
+  {icon: <CourseIcon />, id: TopLevelCategory.Courses, route: '/courses', title: 'Курсы'},
+  {icon: <BookIcon />, id: TopLevelCategory.Books, route: '/books', title: 'Книги'},
+  {icon: <ProductIcon />, id: TopLevelCategory.Products, route: '/products', title: 'Продукты'},
+  {icon: <ServiceIcon />, id: TopLevelCategory.Services, route: '/services', title: 'Сервисы'},
 ]

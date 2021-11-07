@@ -34,7 +34,6 @@ const AppLayout = memo(function AppLayout(props: {
   </div>
 })
 
-
 export const withLayout =<T extends Record<string, unknown> & AppContextType>(Component: FunctionComponent<T>) => {
   return function withLayoutComponent(props: T) {
     return <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>

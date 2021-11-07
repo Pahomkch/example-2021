@@ -27,7 +27,7 @@ export const Rating = memo(function Rating(props: RatingProps) {
       onClick={() => props.isEditable && props.setRaiting?.(idx + 1)}
       onMouseEnter={() => props.isEditable && setCurrentRaiting(idx + 1)}
       tabIndex={props.isEditable ? 0 : -1}
-      onKeyDown={e =>  props.setRaiting && props.isEditable && e.code === 'Space' && props.setRaiting(idx + 1)}
+      onKeyDown={e => props.setRaiting && props.isEditable && e.code === 'Space' && props.setRaiting(idx + 1)}
     />)}
   </div>
 })
