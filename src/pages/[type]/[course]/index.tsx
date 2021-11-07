@@ -2,19 +2,10 @@ import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from 'next'
 import {TopLevelCategory, TopMenuItem} from 'helpers'
 import axios from 'axios'
 import {memo} from 'react'
+import {MenuItem} from 'Index'
 import {ParsedUrlQuery} from 'querystring'
 import {useRouter} from 'next/dist/client/router'
 import {withLayout} from 'Layout/AppLayout'
-
-type MenuItem = {
-  _id: {secondCategory: string}
-  pages: [{
-    alias: string
-    title: string
-    _id: string
-    category: string
-  }]
-}
 
 type Advantage = {
   _id: string
@@ -93,22 +84,19 @@ type CourseProps = {
   menu: MenuItem[]
   page: PageType
   products: ProductType[]
-  firstCategory: number
+  firstCategory: TopLevelCategory
 }
 
 export const Course = memo(function Course(props: CourseProps) {
   const {query} = useRouter()
 
-
-
   return <div>
-        <div><b>{query.course}</b></div>
-        {props.products.map(product => <div key={product._id}>{product.title}  </div>)}
-      </div>
+    <div><b>{query.course}</b></div>
+    {props.products.map(product => <div key={product._id}>{product.title}  </div>)}
+  </div>
 })
 
 export default withLayout(Course)
-
 
 export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
   if(!params?.course || !params?.type){
@@ -117,7 +105,7 @@ export const getStaticProps: GetStaticProps = async ({params}: GetStaticPropsCon
     }
   }
 
-  const menuItem = TopMenuItem.find(item => item.route === params.type)
+  const menuItem = TopMenuItem.find(item => item.route === `/${params.type}`)
 
   const {data: menu} = await axios.post<MenuItem[]>(
     process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find',

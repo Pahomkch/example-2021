@@ -22,22 +22,23 @@ export default withLayout(Type)
 
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-  const firstCategory = 0
 
   if(!params?.type) {
     return {notFound: true}
   }
 
+  const menuItem = TopMenuItem.find(item => item.route === `/${params.type}`)
+
   const {data: menu} = await axios.post<MenuItem[]>(
     process.env.NEXT_PUBLIC_DOMAIN + 'api/top-page/find',
-    {firstCategory: firstCategory},
+    {firstCategory: menuItem?.id},
   )
 
   return {
     props: {
       menu,
-      firstCategory,
-      type: params?.type,
+      firstCategory: menuItem?.id,
+      type         : params?.type,
     },
   }
 }

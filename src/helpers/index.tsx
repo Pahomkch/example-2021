@@ -5,9 +5,9 @@ import ServiceIcon from './assets/icon/services.svg'
 
 export enum TopLevelCategory {
   Courses,
-  Services,
   Books,
-  Products
+  Products,
+  Services,
 }
 
 export const TopMenuItem = [
