@@ -18,7 +18,7 @@ const AppLayout = memo(function AppLayout(props: {
         background    : '#656352',
       }}
     >
-      Header feature
+      Header feature!
       </div>}
     </header>
 
