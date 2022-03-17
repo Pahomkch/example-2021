@@ -18,7 +18,8 @@ const AppLayout = memo(function AppLayout(props: {
         background    : '#656352',
       }}
     >
-      Header
+      Header. --amend in the git viewed history
+      Second row in conflict in `git rebase -i`
       </div>}
     </header>
 
