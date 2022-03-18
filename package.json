@@ -1,6 +1,6 @@
 {
-  "name": "my-top-project-2021",
-  "version": "0.1.0",
+  "name": "project-for-something-2021",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
